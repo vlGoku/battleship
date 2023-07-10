@@ -1,7 +1,10 @@
 "use strict";
 
 class Ship {
-  constructor() {
-    this.ship = [];
+  constructor(length) {
+    this.length = length;
+    this.isSunk = false;
   }
 }
+
+export { Ship };
