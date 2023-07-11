@@ -1,8 +1,10 @@
 "use strict";
+import { Ship } from "./ship";
 
 class Gameboard {
   constructor() {
     this.gameboard = [];
+    this.ships = [];
   }
 
   createGameboard() {
@@ -15,9 +17,26 @@ class Gameboard {
     }
   }
 
-  placeShip(x, y) {
-    this.gameboard[x][y] = "M";
+  placeShip(ship, x, y) {
+    let z = 1;
+    for (let i = 0; i < ship.shipLength(); i++) {
+      if ([x + i] > 9) {
+        this.gameboard[x - z][y] = 1;
+        z++;
+      } else {
+        this.gameboard[x + i][y] = 1;
+      }
+    }
+    this.ships.push(ship);
   }
+
+  placeShipCPU(ship) {
+    let x = parseInt(Math.random() * 10);
+    let y = parseInt(Math.random() * 10);
+    this.placeShip(ship, x, y);
+  }
+
+  checkPlace() {}
 }
 
 export { Gameboard };
