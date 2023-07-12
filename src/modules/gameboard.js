@@ -21,10 +21,10 @@ class Gameboard {
     let z = 1;
     for (let i = 0; i < ship.shipLength(); i++) {
       if ([x + i] > 9) {
-        this.gameboard[x - z][y] = 1;
+        this.gameboard[x - z][y] = ships.number;
         z++;
       } else {
-        this.gameboard[x + i][y] = 1;
+        this.gameboard[x + i][y] = ships.number;
       }
     }
     this.ships.push(ship);
@@ -36,7 +36,20 @@ class Gameboard {
     this.placeShip(ship, x, y);
   }
 
-  checkPlace() {}
+  attackShip(x, y) {
+    if (this.gameboard[x][y] === this.ships.number) {
+      for (let i = 0; i < this.ships.length; i++) {
+        if (this.ships[i].number === this.ships.ship.number) {
+          console.log("Du hast " + this.ships[i].name + " getroffen");
+        }
+        if (this.ships[i].name === "cruiser") {
+          console.log("Du hast " + this.ships[i].name + " getroffen");
+        }
+      }
+    } else {
+      console.log("Leider nicht getroffen");
+    }
+  }
 }
 
 export { Gameboard };

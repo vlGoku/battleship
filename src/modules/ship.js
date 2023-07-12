@@ -2,11 +2,12 @@
 import { Gameboard } from "./gameboard";
 
 class Ship {
-  constructor(name, length) {
+  constructor(name, length, number) {
     this.name = name;
     this.length = length;
     this.isSunk = false;
     this.timesHit = 0;
+    this.number = number;
   }
 
   shipLength() {
@@ -14,9 +15,7 @@ class Ship {
   }
 
   hit() {
-    if (gameboard[i] == 2) {
-      this.timesHit++;
-    }
+    return this.timesHit;
   }
 
   shipIsSunk() {
