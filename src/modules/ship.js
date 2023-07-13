@@ -17,12 +17,6 @@ class Ship {
   hit() {
     return this.timesHit;
   }
-
-  shipIsSunk() {
-    if (this.length === this.timesHit) {
-      this.isSunk = true;
-    }
-  }
 }
 
 export { Ship };

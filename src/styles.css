@@ -1,4 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+}
+
 h1 {
   color: white;
   background-color: black;
+}
+
+#raster {
+  height: 50px;
+  border: 2px solid black;
 }

@@ -5,6 +5,7 @@ class Gameboard {
   constructor() {
     this.gameboard = [];
     this.ships = [];
+    this.counter = 0;
   }
 
   createGameboard() {
@@ -37,36 +38,34 @@ class Gameboard {
   }
 
   attackShip(x, y) {
-    for (let i = 0; i < this.ships.length; i++) {
-      if (this.gameboard[x][y] === 5) {
-        console.log(this.ships[i].name);
-        this.ships[i].timesHit++;
+    const currentItem = this.gameboard[x][y];
+    this.ships.forEach((ship) => {
+      if (ship.shipNumber === currentItem) {
+        ship.timesHit++;
         this.gameboard[x][y] = "Treffer";
+        this.checkShipSunk();
       }
-      if (this.ships[i].shipNumber === 4) {
-        console.log(this.ships[i].name);
-        this.ships[i].timesHit++;
-        this.gameboard[x][y] = "Treffer";
+    });
+    if (this.gameboard[x][y] === 0) {
+      this.gameboard[x][y] = "X";
+    }
+    this.counter++;
+  }
+
+  checkShipSunk() {
+    this.ships.forEach((ship) => {
+      if (ship.timesHit === ship.shipLength()) {
+        ship.isSunk = true;
       }
-      if (this.ships[i].shipNumber === 3) {
-        console.log(this.ships[i].name);
-        this.ships[i].timesHit++;
-        this.gameboard[x][y] = "Treffer";
+      if (ship.isSunk) {
+        console.log("Du hast " + ship.name + " zum sinken gebracht");
       }
-      if (this.ships[i].shipNumber === 2) {
-        console.log(this.ships[i].name);
-        this.ships[i].timesHit++;
-        this.gameboard[x][y] = "Treffer";
-      }
-      if (this.ships[i].shipNumber === 1) {
-        console.log(this.ships[i].name);
-        this.ships[i].timesHit++;
-        this.gameboard[x][y] = "Treffer";
-      }
-      if (this.gameboard[x][y] === 0) {
-        this.gameboard[x][y] = "X";
-        console.log("Daneben");
-      }
+    });
+  }
+
+  checkIfShipIsThere() {
+    if (this.gameboard[x][y] != ship.shipNumber) {
+      this.placeShip(ship, x, y);
     }
   }
 }
