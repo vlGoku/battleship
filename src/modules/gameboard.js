@@ -21,10 +21,10 @@ class Gameboard {
     let z = 1;
     for (let i = 0; i < ship.shipLength(); i++) {
       if ([x + i] > 9) {
-        this.gameboard[x - z][y] = ships.number;
+        this.gameboard[x - z][y] = ship.shipNumber;
         z++;
       } else {
-        this.gameboard[x + i][y] = ships.number;
+        this.gameboard[x + i][y] = ship.shipNumber;
       }
     }
     this.ships.push(ship);
@@ -37,17 +37,36 @@ class Gameboard {
   }
 
   attackShip(x, y) {
-    if (this.gameboard[x][y] === this.ships.number) {
-      for (let i = 0; i < this.ships.length; i++) {
-        if (this.ships[i].number === this.ships.ship.number) {
-          console.log("Du hast " + this.ships[i].name + " getroffen");
-        }
-        if (this.ships[i].name === "cruiser") {
-          console.log("Du hast " + this.ships[i].name + " getroffen");
-        }
+    for (let i = 0; i < this.ships.length; i++) {
+      if (this.gameboard[x][y] === 5) {
+        console.log(this.ships[i].name);
+        this.ships[i].timesHit++;
+        this.gameboard[x][y] = "Treffer";
       }
-    } else {
-      console.log("Leider nicht getroffen");
+      if (this.ships[i].shipNumber === 4) {
+        console.log(this.ships[i].name);
+        this.ships[i].timesHit++;
+        this.gameboard[x][y] = "Treffer";
+      }
+      if (this.ships[i].shipNumber === 3) {
+        console.log(this.ships[i].name);
+        this.ships[i].timesHit++;
+        this.gameboard[x][y] = "Treffer";
+      }
+      if (this.ships[i].shipNumber === 2) {
+        console.log(this.ships[i].name);
+        this.ships[i].timesHit++;
+        this.gameboard[x][y] = "Treffer";
+      }
+      if (this.ships[i].shipNumber === 1) {
+        console.log(this.ships[i].name);
+        this.ships[i].timesHit++;
+        this.gameboard[x][y] = "Treffer";
+      }
+      if (this.gameboard[x][y] === 0) {
+        this.gameboard[x][y] = "X";
+        console.log("Daneben");
+      }
     }
   }
 }

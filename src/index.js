@@ -7,11 +7,11 @@ import { Ship } from "./modules/ship";
 (function init() {
   const gameboardPlayer = new Gameboard();
   const gameboardKI = new Gameboard();
-  const carrier = new Ship("carrier", 5, 2);
-  const battleship = new Ship("battleship", 4);
-  const cruiser = new Ship("cruiser", 3);
-  const submarine = new Ship("submarine", 3);
-  const destroyer = new Ship("destroyer", 2);
+  const carrier = new Ship("carrier", 5, 5);
+  const battleship = new Ship("battleship", 4, 4);
+  const cruiser = new Ship("cruiser", 3, 3);
+  const submarine = new Ship("submarine", 3, 2);
+  const destroyer = new Ship("destroyer", 2, 1);
 
   gameboardPlayer.createGameboard();
   gameboardKI.createGameboard();
@@ -20,6 +20,9 @@ import { Ship } from "./modules/ship";
   gameboardPlayer.placeShip(cruiser, 5, 2);
 
   gameboardPlayer.attackShip(5, 2);
+  gameboardPlayer.attackShip(1, 2);
+  gameboardPlayer.attackShip(0, 7);
 
   console.log(gameboardPlayer.gameboard);
+  console.log(gameboardPlayer.carrier.timesHit);
 })();

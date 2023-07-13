@@ -7,7 +7,7 @@ class Ship {
     this.length = length;
     this.isSunk = false;
     this.timesHit = 0;
-    this.number = number;
+    this.shipNumber = number;
   }
 
   shipLength() {
