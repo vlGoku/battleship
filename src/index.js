@@ -4,6 +4,7 @@ import { Game } from "./modules/game";
 import { Gameboard } from "./modules/gameboard";
 import { Ship } from "./modules/ship";
 import { GUIGameboard } from "./modules/GUIBoard";
+import { createTag } from "./modules/functions";
 
 (function init() {
   const gameboardPlayer = new Gameboard();
@@ -17,11 +18,5 @@ import { GUIGameboard } from "./modules/GUIBoard";
   gameboardPlayer.createGameboard();
   gameboardKI.createGameboard();
 
-  gameboardPlayer.placeShip(carrier, 1, 1);
-
-  gameboardPlayer.attackShip(1, 1);
-  gameboardPlayer.attackShip(2, 1);
-
   console.log(gameboardPlayer.gameboard);
-  console.log(gameboardPlayer.counter);
 })();

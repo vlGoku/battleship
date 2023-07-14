@@ -1,21 +1,33 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
+#app {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 section {
+  margin: auto;
+}
+
+#title {
+  color: black;
+  text-align: center;
+}
+
+.field {
+  height: 500px;
+  width: 500px;
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: repeat(10, 1fr);
 }
 
-h1 {
-  color: white;
-  background-color: black;
-}
-
-#raster {
-  height: 50px;
-  border: 2px solid black;
+#playerHeader {
+  text-align: center;
+  padding-bottom: 20px;
 }
