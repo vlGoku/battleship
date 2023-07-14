@@ -35,6 +35,7 @@ function createGameDisplay() {
   document.body.insertAdjacentElement("afterbegin", header);
 }
 
+//listener not finished
 function listener() {
   const boxes = document.querySelectorAll(".box");
 
